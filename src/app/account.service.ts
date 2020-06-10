@@ -14,9 +14,12 @@ export class AccountService {
   constructor(private http: HttpClient) {}
 
   getAccounts() {
-    return this.http.get<AccountResponse[]>(`${this.url}/accounts`);
+    return this.http.get<AccountResponse[]>(`${this.url}/api/accounts`);
   }
   sendTransfer(transfer: Transfer) {
-    return this.http.post<Transfer>(`${this.url}/transfer`, transfer);
+    return this.http.post<Transfer>(`${this.url}/api/transfer`, transfer);
+  }
+  public search(term: string) {
+    return this.http.get(`${this.url}/api/transfer`);
   }
 }

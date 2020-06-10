@@ -13,5 +13,6 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit() {
     console.log("this.transactions from app ", this.transactions$);
+    console.log(typeof this.transactions$);
   }
 }
