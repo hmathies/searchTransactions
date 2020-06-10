@@ -1,0 +1,15 @@
+<div class="ui celled list">
+  <div class="item" *ngFor="let transaction of transactions$ | async">
+    <div class="left floated content middle aligned">
+      {{ transaction.transactionDate | date: "MMM dd" }}
+    </div>
+    <img class="ui avatar image" src="{{ transaction.merchantLogo }}" />
+    <div class="content">
+      <div class="header">{{ transaction.merchant }}</div>
+      {{ transaction.transactionType }}
+    </div>
+    <div class="right floated content">
+      <div class="ui ">{{ transaction.amount }}</div>
+    </div>
+  </div>
+</div>

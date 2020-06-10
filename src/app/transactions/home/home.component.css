@@ -1,0 +1,5 @@
+.backImg {
+  background-image: url("/assets/background.jpg") !important;
+  background-size: cover;
+  background-position: center center;
+}

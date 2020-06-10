@@ -1,0 +1,30 @@
+<form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="transferForm">
+  <app-input
+    [control]="transferForm.get('from')"
+    controlType="select"
+    [accounts]="accounts"
+    label="FROM"
+  >
+  </app-input>
+  <app-input
+    [control]="transferForm.get('to')"
+    controlType="select"
+    [accounts]="accounts"
+    label="TO"
+  >
+  </app-input>
+
+  <app-input
+    [control]="transferForm.get('amount')"
+    inputType="number"
+    label="AMOUNT"
+  >
+  </app-input>
+  <button
+    [disabled]="transferForm.invalid"
+    type="submit"
+    class="ui button primary"
+  >
+    SUBMIT
+  </button>
+</form>

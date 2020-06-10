@@ -1,0 +1,11 @@
+.list {
+  background-color: white;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.ui.list > .item > .image {
+  margin: 0 20px;
+}
