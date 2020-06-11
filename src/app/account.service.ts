@@ -16,10 +16,8 @@ export class AccountService {
   getAccounts() {
     return this.http.get<AccountResponse[]>(`${this.url}/api/accounts`);
   }
-  sendTransfer(transfer: Transfer) {
-    return this.http.post<Transfer>(`${this.url}/api/transfer`, transfer);
+  getMerchants() {
+    return this.http.get<AccountResponse[]>(`${this.url}/api/transactions`);
   }
-  public search(term: string) {
-    return this.http.get(`${this.url}/api/transfer`);
-  }
+
 }

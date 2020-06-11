@@ -10,6 +10,7 @@ export class TransferFormComponent implements OnInit {
   transferForm: FormGroup;
   @Input() transfer: Transfer;
   @Input() accounts;
+  @Input() merchants;
   @Output() transferSubmit = new EventEmitter();
 
   constructor() {}
@@ -18,12 +19,10 @@ export class TransferFormComponent implements OnInit {
     const { from, to, amount } = this.transfer;
 
     this.transferForm = new FormGroup({
-      from: new FormControl({ value: from, disabled: true }),
-      to: new FormControl(to, [Validators.required]),
-      amount: new FormControl(amount, [
-        Validators.required,
-        Validators.pattern(/^[0-9]*$/)
-      ])
+      from: new FormControl(""),
+      to: new FormControl(""),
+      amount: new FormControl(""
+      )
     });
   }
   onSubmit() {
@@ -31,5 +30,6 @@ export class TransferFormComponent implements OnInit {
       return;
     }
     this.transferSubmit.emit(this.transferForm.value);
+    console.log("clicked")
   }
 }

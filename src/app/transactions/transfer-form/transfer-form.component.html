@@ -8,8 +8,8 @@
   </app-input>
   <app-input
     [control]="transferForm.get('to')"
-    controlType="select"
-    [accounts]="accounts"
+    controlType="selectMerchant"
+    [merchants]="merchants"
     label="TO"
   >
   </app-input>
@@ -24,6 +24,7 @@
     [disabled]="transferForm.invalid"
     type="submit"
     class="ui button primary"
+  
   >
     SUBMIT
   </button>

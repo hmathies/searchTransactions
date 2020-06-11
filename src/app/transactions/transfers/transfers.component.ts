@@ -10,9 +10,11 @@ import { AccountResponse } from "../AccountResponse";
 })
 export class TransfersComponent implements OnInit {
   @Output() accounts;
+  @Output() merchants;
   //TODO: possible remove the output decorator for transfer
   @Output() transfer: Transfer;
-  firstAccount = {};
+  
+  
 
   constructor(private accountService: AccountService) {
     // this.transfer = {
@@ -20,13 +22,16 @@ export class TransfersComponent implements OnInit {
     //   to: this.accounts,
     //   amount: ""
     // };
-    this.accountService.getAccounts().subscribe(accounts => {
-      this.firstAccount = accounts[0];
-      this.accounts = accounts;
 
-      console.log(this.accounts);
-      console.log(this.firstAccount);
+    this.accountService.getAccounts().subscribe(accounts => {
+    
+      this.accounts = accounts;
+      
     });
+
+    this.accountService.getMerchants().subscribe((merchants) => {
+      this.merchants = merchants;
+    })
   }
 
   ngOnInit() {
@@ -38,13 +43,14 @@ export class TransfersComponent implements OnInit {
     //   console.log(this.firstAccount);
     // });
     this.transfer = {
-      from: this.firstAccount,
-      to: this.accounts,
+      from: "",
+      to: "",
       amount: ""
     };
   }
 
-  // onSubmit(transfer: Transfer){
-  //   this.accountService.
-  // }
+  onDecrement(event: Event){
+    /// handle event here
+    console.log("event")
+  }
 }

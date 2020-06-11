@@ -11,6 +11,7 @@ export class InputComponent implements OnInit {
   @Input() control: FormControl;
   @Input() inputType: string;
   @Input() accounts: [];
+  @Input() merchants: [];
   @Input() controlType = "input";
   constructor() {
     console.log(this);
