@@ -1,15 +1,15 @@
 <form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="transferForm">
   <app-input
     [control]="transferForm.get('from')"
-    controlType="select"
-    [accounts]="accounts"
+    inputType="text"
+    placeholder="Now Checking"
     label="FROM"
+   
   >
   </app-input>
   <app-input
     [control]="transferForm.get('to')"
-    controlType="selectMerchant"
-    [merchants]="merchants"
+    inputType="text"
     label="TO"
   >
   </app-input>
@@ -29,3 +29,4 @@
     SUBMIT
   </button>
 </form>
+ <!-- line 5 make them variable with amount so we can decrement -->

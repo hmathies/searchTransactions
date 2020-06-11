@@ -7,13 +7,11 @@ import { AccountService } from "../../account.service";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  // lists = [];
-  // transactions$ = this.http.get("http://localhost:3000/transactions");
+
 
   constructor(private accountService: AccountService) {}
 
   ngOnInit() {}
-  // onTerm(term: string){
-  //   this.accountService.search
-  // }
+
+  
 }

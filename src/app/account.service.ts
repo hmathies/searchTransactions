@@ -19,5 +19,8 @@ export class AccountService {
   getMerchants() {
     return this.http.get<AccountResponse[]>(`${this.url}/api/transactions`);
   }
+  postTransfer(transfer: any) {
+    return this.http.post<any>(`${this.url}/api/transactions`, transfer)
+  }
 
 }

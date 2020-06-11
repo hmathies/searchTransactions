@@ -6,12 +6,12 @@
     [formControl]="control"
   />
   <select *ngIf="controlType === 'select'" class="ui search dropdown">
-    <option *ngFor="let account of accounts"
+    <option *ngFor="let account of accounts" value="{{account.name}}" 
       >{{ account.name }} {{ account.availableBalance }}</option
     >
   </select>
   <select *ngIf="controlType === 'selectMerchant'" class="ui search dropdown">
-    <option *ngFor="let merchant of merchants"
+    <option *ngFor="let merchant of merchants"(ngClick)="console.log(this)"
       >{{ merchant.merchant }}</option
     >
   </select>
