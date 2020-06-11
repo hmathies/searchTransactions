@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./history.component.css"]
 })
 export class HistoryComponent implements OnInit {
-  transactions$ = this.http.get("http://localhost:3000/api/data");
+  transactions$ = this.http.get("http://localhost:3000/transactions");
 
   constructor(private http: HttpClient) {}
 
