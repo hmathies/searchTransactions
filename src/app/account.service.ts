@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { AccountResponse } from "../app/transactions/AccountResponse";
 import { Transfer } from "./transactions/transfer";
+import { History } from "./transactions/history";
 
 @Injectable({
   providedIn: "root"
@@ -16,6 +17,10 @@ export class AccountService {
   getAccounts() {
     return this.http.get<AccountResponse[]>(`${this.url}/api/accounts`);
   }
+  getHistory(): Observable<History[]> {
+    return this.http.get<History[]>(`${this.url}/api/transactions`);
+  }
+
   sendTransfer(transfer: Transfer) {
     return this.http.post<Transfer>(`${this.url}/api/transfer`, transfer);
   }

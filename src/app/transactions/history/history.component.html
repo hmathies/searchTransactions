@@ -1,4 +1,4 @@
-<h2 class="ui header">
+<!-- <h2 class="ui header">
   <img class="ui image" src="/assets/icons/suitcase.png" />
   <div class="content">
     Recent Transactions
@@ -6,7 +6,12 @@
 </h2>
 <div class="ui search">
   <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Search by typing..." />
+    <input
+      [(ngModel)]="filterField"
+      class="prompt"
+      type="text"
+      placeholder="Search by typing..."
+    />
     <i class="search icon"></i>
   </div>
   <div class="results"></div>
@@ -25,4 +30,54 @@
       <div class="ui ">{{ transaction.amount }}</div>
     </div>
   </div>
+</div> -->
+
+<!-- ------------------- -->
+<h2 class="ui header">
+  <img class="ui image" src="/assets/icons/suitcase.png" />
+  <div class="content">
+    Recent Transactions
+  </div>
+</h2>
+<div class="ui search">
+  <div class="ui icon input">
+    <input
+      [(ngModel)]="filterField"
+      class="prompt"
+      type="text"
+      placeholder="Search by typing..."
+    />
+    <i class="search icon"></i>
+  </div>
+  <ng-container
+    *ngIf="filterResults$ | filter: filterField | async as data; else loading"
+  >
+    <div class="ui celled list" *ngIf="dataLength(data); else error">
+      <div *ngFor="let transaction of data; let i = index" class="item">
+        <div class="left floated content middle aligned">
+          {{ transaction.transactionDate | date: "MMM dd" }}
+        </div>
+
+        <div class="content">
+          <div class="header">{{ transaction.merchant }}</div>
+          {{ transaction.transactionType }}
+        </div>
+        <div class="right floated content">
+          <div class="ui ">{{ transaction.amount }}</div>
+        </div>
+      </div>
+    </div>
+    <ng-template #error>
+      <div class="col-12">
+        <div class="alert alert-danger">
+          I could not find a country matching your filter criteria!
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+  <ng-template #loading>
+    <div class="col-12 text-center">
+      Loading ...
+    </div>
+  </ng-template>
 </div>

@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from "./app.component";
 import { TransactionsModule } from "./transactions/transactions.module";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +13,8 @@ import { TransactionsModule } from "./transactions/transactions.module";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    TransactionsModule
+    TransactionsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,12 +12,12 @@ export class FilterService {
     return of(history).pipe(
       delay(2000),
       map(h => {
-        // if filter is empty return all
+        // if filter is empty return all merchants
         if (!filter) {
           return h;
         }
 
-        // search for specific transaction by merchant
+        // search for specific merchant
         const filteredHistory: History[] = [];
 
         h.filter(function(history) {
