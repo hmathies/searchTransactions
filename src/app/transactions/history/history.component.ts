@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { AccountService } from '../../account.service';
+import { AccountResponse } from '../AccountResponse';
 
 @Component({
   selector: "app-history",
@@ -7,17 +9,24 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./history.component.css"]
 })
 export class HistoryComponent implements OnInit {
-  transactions$ = this.http.get("http://localhost:3000/transactions");
-  @Input() newTransfer: Object;
-  constructor(private http: HttpClient) {}
+  @Output() transactions$: History[];
+  @Input() merchants: AccountResponse[];
+  @Output() newTransfer: Object;
+  constructor(private http: HttpClient, private accountService: AccountService) {
+    this.accountService.getRecentTransactionsList().subscribe(recentTransactions => {
+      this.transactions$ = recentTransactions;
+    });
+    this.accountService.getTransfer(this.newTransfer).subscribe((newTransfer) => {
+      this.newTransfer = newTransfer;
+    })
+  }
   ngOnChanges(){
     console.log("On changes", this.newTransfer);
-    console.log(this.transactions$)
+    console.log("I am in history component class ", this.transactions$)
   }
 
   ngOnInit() {
-    console.log("this.transactions from app ", this.transactions$);
-   
+
     
   }
 

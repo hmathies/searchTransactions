@@ -44,10 +44,10 @@ export class TransferFormComponent implements OnInit {
       transactionDate: dateSent,
       transactionType: "Online Transfer"
     }
-    this.transferSubmit.emit(this.transferForm.value);
+    //this.transferSubmit.emit(this.transferForm.value);
     this.accountService.postTransfer(this.newTransfer);
-    console.log(this.transferForm.value);
-    console.log(this.newTransfer)
+    console.log("this.transferForm.value ", this.transferForm.value);
+    console.log("this.newTransfer ", this.newTransfer)
     //this.transferForm.reset();
 
   }

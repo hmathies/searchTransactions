@@ -14,7 +14,7 @@ export class InputComponent implements OnInit {
   @Input() merchants: [];
   @Input() controlType = "input";
   constructor() {
-    console.log(this);
+    
   }
 
   ngOnInit() {}

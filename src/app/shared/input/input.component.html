@@ -11,7 +11,7 @@
     >
   </select>
   <select *ngIf="controlType === 'selectMerchant'" class="ui search dropdown">
-    <option *ngFor="let merchant of merchants"(ngClick)="console.log(this)"
+    <option *ngFor="let merchant of merchants"
       >{{ merchant.merchant }}</option
     >
   </select>

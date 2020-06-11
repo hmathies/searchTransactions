@@ -7,11 +7,13 @@ npm: 6.12.0
 Angular: 8.2.14
 Angular CLI: 8.3.26
 
+### Get the app running locally
+## Mock Data
+Run `npm install` from the root of the project. 
+Run `npm run api` to start up the json server.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` in a different terminal to start the development server. Navigate to `http://localhost:4200/`. 
 
-## Mock Data
 
-Run 'json-server --watch accounts.json' at the root of the project for mock data from `accounts.json' which is at the root of the project and provides mock checking and savings accounts to populate the dropdown menu in the transfer component.

@@ -12,7 +12,7 @@
   <div class="results"></div>
 </div>
 <div class="ui celled list">
-  <div class="item" *ngFor="let transaction of transactions$ | async">
+  <div class="item" *ngFor="let transaction of transactions$">
     <div class="left floated content middle aligned">
       {{ transaction.transactionDate | date: "MMM dd" }}
     </div>
@@ -25,7 +25,8 @@
       <div class="ui ">{{ transaction.amount }}</div>
     </div>
   </div>
-  <ng-container *ngIf="newTransfer | async">
-    <div class="ui">New Data!!</div>
-  </ng-container>
+  <div *ngIf="newTransfer">
+    <h1 class="ui">New Data!!</h1>
+    <div *ngFor="let new of newTransfer">{{new.merchant}}</div>
+  </div>
 </div>

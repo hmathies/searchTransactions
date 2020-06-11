@@ -16,6 +16,7 @@ export class AccountService {
   getAccounts() {
     return this.http.get<AccountResponse[]>(`${this.url}/api/accounts`);
   }
+  // Below is a call to get all the transactions
   getMerchants() {
     return this.http.get<AccountResponse[]>(`${this.url}/api/transactions`);
   }
@@ -23,6 +24,9 @@ export class AccountService {
     return this.http.post<any>(`${this.url}/api/transactions`, transfer)
   }
   getTransfer(postedTransfer: any){
+    return this.http.get<any>(`${this.url}/api/transactions`)
+  }
+  getRecentTransactionsList(): any{
     return this.http.get<any>(`${this.url}/api/transactions`)
   }
 
