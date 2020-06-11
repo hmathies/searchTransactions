@@ -85,26 +85,8 @@
     {
       "id": 1,
       "name": "Business Checking",
-      "availableBalance": 500.0,
+      "availableBalance": 5000.0,
       "type": "checking"
-    },
-    {
-      "id": 2,
-      "name": "Now Checking",
-      "availableBalance": 100.0,
-      "type": "checking"
-    },
-    {
-      "id": 3,
-      "name": "Personal Savings",
-      "availableBalance": 2000.0,
-      "type": "savings"
-    },
-    {
-      "id": 4,
-      "name": "Now Savings",
-      "availableBalance": 3000.0,
-      "type": "savings"
     }
   ]
 }
