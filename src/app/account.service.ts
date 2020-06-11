@@ -22,5 +22,8 @@ export class AccountService {
   postTransfer(transfer: any) {
     return this.http.post<any>(`${this.url}/api/transactions`, transfer)
   }
+  getTransfer(postedTransfer: any){
+    return this.http.get<any>(`${this.url}/api/transactions`)
+  }
 
 }

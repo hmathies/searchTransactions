@@ -25,4 +25,7 @@
       <div class="ui ">{{ transaction.amount }}</div>
     </div>
   </div>
+  <ng-container *ngIf="newTransfer | async">
+    <div class="ui">New Data!!</div>
+  </ng-container>
 </div>

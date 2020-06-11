@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -8,11 +8,18 @@ import { HttpClient } from "@angular/common/http";
 })
 export class HistoryComponent implements OnInit {
   transactions$ = this.http.get("http://localhost:3000/transactions");
-
+  @Input() newTransfer: Object;
   constructor(private http: HttpClient) {}
+  ngOnChanges(){
+    console.log("On changes", this.newTransfer);
+    console.log(this.transactions$)
+  }
 
   ngOnInit() {
     console.log("this.transactions from app ", this.transactions$);
-    console.log(typeof this.transactions$);
+   
+    
   }
+
+
 }

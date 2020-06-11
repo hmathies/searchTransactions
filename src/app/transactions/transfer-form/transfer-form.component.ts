@@ -15,6 +15,7 @@ export class TransferFormComponent implements OnInit {
   @Input() accounts;
   @Input() merchants;
   @Output() transferSubmit = new EventEmitter();
+  @Output() newTransfer: Object;
   fromAccount: string = 'Now Checking(8979) '
   fromAccountAmt: number = 10000
   constructor(private accountService: AccountService) {}
@@ -35,7 +36,7 @@ export class TransferFormComponent implements OnInit {
       return;
     }
     let dateSent = new Date();
-    let newTransfer: Object = {
+    this.newTransfer = {
       amount: this.transferForm.value.amount,
       categoryCode: '',
       merchant: this.transferForm.value.to,
@@ -44,10 +45,10 @@ export class TransferFormComponent implements OnInit {
       transactionType: "Online Transfer"
     }
     this.transferSubmit.emit(this.transferForm.value);
-    this.accountService.postTransfer(newTransfer);
+    this.accountService.postTransfer(this.newTransfer);
     console.log(this.transferForm.value);
-    console.log(newTransfer)
-    this.transferForm.reset();
+    console.log(this.newTransfer)
+    //this.transferForm.reset();
 
   }
 }
