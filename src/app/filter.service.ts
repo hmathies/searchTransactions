@@ -1,3 +1,4 @@
+/*  FILTER to search through Recent Transactions */
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { map, delay } from "rxjs/operators";

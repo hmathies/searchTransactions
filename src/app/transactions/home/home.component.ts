@@ -8,7 +8,7 @@ import { AccountService } from "../../account.service";
 })
 export class HomeComponent implements OnInit {
   // lists = [];
-  // transactions$ = this.http.get("http://localhost:3000/api/transactions");
+  // transactions$ = this.http.get("http://localhost:3000/transactions");
 
   constructor(private accountService: AccountService) {}
 
