@@ -5,17 +5,22 @@
     [type]="inputType"
     [formControl]="control"
   />
-  <select *ngIf="controlType === 'select'" class="ui search dropdown">
-    <option *ngFor="let account of accounts" value="{{account.name}}" 
-      >{{ account.name }} {{ account.availableBalance }}</option
-    >
-  </select>
-  <select *ngIf="controlType === 'selectMerchant'" class="ui search dropdown">
-    <option *ngFor="let merchant of merchants"
-      >{{ merchant.merchant }}</option
-    >
-  </select>
-
+   <!-- Below is for populating two dropdown fields as part of my original architecture of the project.
+  I created another json object called `accounts.json` which had a list of accounts a user could select from  -->
+        <!-- <select *ngIf="controlType === 'select'" class="ui search dropdown">
+          <option *ngFor="let account of accounts" value="{{account.name}}" 
+            >{{ account.name }} {{ account.availableBalance }}</option>
+        </select>
+   This select was populating a dropdown with the information from the backbase provided `data.json`
+        <select *ngIf="controlType === 'selectMerchant'" class="ui search dropdown">
+          <option *ngFor="let merchant of merchants"
+            >{{ merchant.merchant }}</option
+          >
+        </select> 
+      I chose to remove the dropdowns and replace with input fields as my understanding of the intent
+      of the assignment evolved.
+      -->
+<!-- Here we are programmatically showing errors using Angular Validation -->
   <div *ngIf="showErrors()" class="ui pointing red basic label">
     <p *ngIf="control.errors.required">Value is required</p>
     <p *ngIf="control.errors.pattern">Invalid format</p>

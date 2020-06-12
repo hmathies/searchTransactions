@@ -10,14 +10,16 @@ export class InputComponent implements OnInit {
   @Input() label: string;
   @Input() control: FormControl;
   @Input() inputType: string;
-  @Input() accounts: [];
-  @Input() merchants: [];
+  /* Below Input decorators where for capturing the api data to populate the select/dropdowns from my inital design */
+  // @Input() accounts: [];
+  // @Input() merchants: [];
   @Input() controlType = "input";
-  constructor() {
-    
-  }
+  
+  constructor() {}
 
   ngOnInit() {}
+
+  // Handeling form validation
   showErrors() {
     const { dirty, touched, errors } = this.control;
     return dirty && touched && errors;

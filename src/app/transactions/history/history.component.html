@@ -15,7 +15,6 @@
     <div class="ui button">AMOUNT</div>
   </div>
     <div class="ui celled list" *ngIf="(transactions | filter: searchTerm).length > 0; else noResults">
-      
         <div class="item" *ngFor="let transaction of transactions | filter: searchTerm">
         <div class="left floated content middle aligned">
           {{ transaction.transactionDate | date: "MMM dd" }}
@@ -29,11 +28,12 @@
           <div class="ui ">-${{ transaction.amount }}</div>
         </div>
       </div>
-      
-  
     </div>
+    <!-- If search returns no results, show the ng-template -->
     <ng-template #noResults>
-      <p style="color: black">No results found for "{{searchTerm}}"</p>
+      <div class="no-results-div">
+        <p>No results found for "{{searchTerm}}".  Please try another search.</p>
+      </div>
     </ng-template>
   </div>
 </div>

@@ -11,7 +11,12 @@ import { HistoryComponent } from './history/history.component';
 import { FilterPipe } from "../filter.pipe";
 
 @NgModule({
-  declarations: [TransfersComponent, HomeComponent, TransferFormComponent, HistoryComponent, FilterPipe],
+  declarations: [
+    TransfersComponent, 
+    HomeComponent, 
+    TransferFormComponent, 
+    HistoryComponent, 
+    FilterPipe],
   imports: [
     CommonModule,
     TransactionsRoutingModule,

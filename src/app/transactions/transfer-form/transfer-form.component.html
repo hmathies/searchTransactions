@@ -5,22 +5,18 @@
     label="FROM"
     value="fromAccount"
   >
-  {{transferForm.get('from').errors | json}}
   </app-input>
   <app-input
     [control]="transferForm.get('to')"
     inputType="text"
     label="TO"
-  >
- 
-  </app-input>
+  ></app-input>
   
   <app-input
     [control]="transferForm.get('amount')"
     inputType="number"
     label="AMOUNT"
-  >
-  </app-input>
+  ></app-input>
   <button
     [disabled]="transferForm.invalid"
     type="submit"

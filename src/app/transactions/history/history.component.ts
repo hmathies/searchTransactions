@@ -15,20 +15,16 @@ export class HistoryComponent implements OnInit {
   searchTerm: string;
 
   constructor(private http: HttpClient, private accountService: AccountService) {
+    // call to populate the list of recent transactions
     this.accountService.getRecentTransactionsList().subscribe(recentTransactions => {
       this.transactions = recentTransactions;
     });
-    // calling the service to try and retrieve the posted transfer to populate to the Recent Transactions List
+    // not fully implemented: calling the service to try and retrieve the posted transfer to populate to the Recent Transactions List
     this.accountService.getTransfer(this.newTransfer).subscribe((newTransfer) => {
       this.newTransfer = newTransfer;
     })
   }
  
-
-  ngOnInit() {
-
-    
-  }
-
+  ngOnInit() {}
 
 }

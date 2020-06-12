@@ -9,14 +9,12 @@
   height: max-content;
   margin: 20px 0px 20px 80px;
 }
-
 .ui.header {
   border-bottom: solid orange;
 }
 .wrapper {
   margin: 10px;
 }
-
 @media screen and (max-width: 480px) {
   .ui.header > .image:not(.icon):only-child,
   .ui.header > img:only-child {

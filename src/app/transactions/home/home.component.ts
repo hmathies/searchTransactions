@@ -8,7 +8,6 @@ import { AccountService } from "../../account.service";
 })
 export class HomeComponent implements OnInit {
 
-
   constructor(private accountService: AccountService) {}
 
   ngOnInit() {}

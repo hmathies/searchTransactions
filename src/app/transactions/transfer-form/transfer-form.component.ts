@@ -2,14 +2,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Transfer } from "../transfer";
 import { AccountService } from "../../account.service";
-import { $ } from 'protractor';
 
 @Component({
   selector: "app-transfer-form",
   templateUrl: "./transfer-form.component.html",
   styleUrls: ["./transfer-form.component.css"]
 })
-export class TransferFormComponent  {
+export class TransferFormComponent implements OnInit {
   transferForm: FormGroup;
   @Input() transfer: Transfer;
   @Input() accounts;
@@ -18,7 +17,7 @@ export class TransferFormComponent  {
   @Output() newTransfer: Object;
 
   constructor(private accountService: AccountService) {}
-  ngOnChanges() {
+  ngOnInit() {
     const { from, to, amount } = this.transfer;
 
     this.transferForm = new FormGroup({

@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
 import { AccountResponse } from "../app/transactions/AccountResponse";
 import { Transfer } from "./transactions/transfer";
+import { RecentTransactions } from './transactions/recentTransactions';
 
 @Injectable({
   providedIn: "root"

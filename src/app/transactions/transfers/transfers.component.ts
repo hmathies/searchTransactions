@@ -16,7 +16,6 @@ export class TransfersComponent implements OnInit {
   constructor(private accountService: AccountService) {
     this.accountService.getAccounts().subscribe(accounts => {
       this.accounts = accounts;
-      
     });
 
     this.accountService.getMerchants().subscribe((merchants) => {
@@ -29,8 +28,6 @@ export class TransfersComponent implements OnInit {
     };
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 }
