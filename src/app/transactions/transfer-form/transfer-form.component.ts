@@ -17,6 +17,7 @@ export class TransferFormComponent implements OnInit {
   @Output() transferSubmit = new EventEmitter();
   @Output() newTransfer: Object;
   fromAccount: string = 'Now Checking(8979) '
+  //  make them variable with amount so we can decrement
   fromAccountAmt: number = 10000
   constructor(private accountService: AccountService) {}
 
@@ -31,24 +32,24 @@ export class TransferFormComponent implements OnInit {
       )
     });
   }
-  onSubmit() {
-    if (this.transferForm.invalid) {
-      return;
-    }
-    let dateSent = new Date();
-    this.newTransfer = {
-      amount: this.transferForm.value.amount,
-      categoryCode: '',
-      merchant: this.transferForm.value.to,
-      merchantLogo: '',
-      transactionDate: dateSent,
-      transactionType: "Online Transfer"
-    }
-    //this.transferSubmit.emit(this.transferForm.value);
-    this.accountService.postTransfer(this.newTransfer);
-    console.log("this.transferForm.value ", this.transferForm.value);
-    console.log("this.newTransfer ", this.newTransfer)
-    //this.transferForm.reset();
 
-  }
+  // onSubmit() {
+  //   if (this.transferForm.invalid) {
+  //     return;
+  //   }
+  //   let dateSent = new Date().getTime();
+  //   this.newTransfer = {
+  //     amount: this.transferForm.value.amount,
+  //     categoryCode: '',
+  //     merchant: this.transferForm.value.to,
+  //     merchantLogo: '',
+  //     transactionDate: dateSent,
+  //     transactionType: "Online Transfer"
+  //   }
+  //   //this.transferSubmit.emit(this.transferForm.value);
+  //   this.accountService.postTransfer(this.newTransfer);
+  //   console.log("this.newTransfer ", this.newTransfer)
+  //   //this.transferForm.reset(); -- this is clearing the from field - not what we want
+
+  // }
 }

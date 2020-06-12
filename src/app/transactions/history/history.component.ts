@@ -9,21 +9,21 @@ import { AccountResponse } from '../AccountResponse';
   styleUrls: ["./history.component.css"]
 })
 export class HistoryComponent implements OnInit {
-  @Output() transactions$: History[];
+  @Output() transactions: History[];
   @Input() merchants: AccountResponse[];
-  @Output() newTransfer: Object;
+  @Input() newTransfer: Object;
+  searchTerm: string;
+
   constructor(private http: HttpClient, private accountService: AccountService) {
     this.accountService.getRecentTransactionsList().subscribe(recentTransactions => {
-      this.transactions$ = recentTransactions;
+      this.transactions = recentTransactions;
     });
+    // calling the service to try and retrieve the posted transfer to populate to the Recent Transactions List
     this.accountService.getTransfer(this.newTransfer).subscribe((newTransfer) => {
       this.newTransfer = newTransfer;
     })
   }
-  ngOnChanges(){
-    console.log("On changes", this.newTransfer);
-    console.log("I am in history component class ", this.transactions$)
-  }
+ 
 
   ngOnInit() {
 

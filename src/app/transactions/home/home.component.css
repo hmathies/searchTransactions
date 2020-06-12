@@ -14,6 +14,7 @@
   border-bottom: solid orange;
 }
 
+
 @media screen and (max-width: 480px) {
   .ui.header > .image:not(.icon):only-child,
   .ui.header > img:only-child {

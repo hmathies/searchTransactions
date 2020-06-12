@@ -1,32 +1,36 @@
-<h2 class="ui header">
-  <img class="ui image" src="/assets/icons/suitcase.png" />
-  <div class="content">
-    Recent Transactions
-  </div>
-</h2>
+
+  <h2 class="ui header">
+    <img class="ui image" src="/assets/icons/suitcase.png" />
+    <div class="content">
+      Recent Transactions
+    </div>
+  </h2>
 <div class="ui search">
   <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Search by typing..." />
+    <input class="prompt" type="text"[(ngModel)]="searchTerm" placeholder="Search by typing..." />
     <i class="search icon"></i>
   </div>
-  <div class="results"></div>
-</div>
-<div class="ui celled list">
-  <div class="item" *ngFor="let transaction of transactions$">
-    <div class="left floated content middle aligned">
-      {{ transaction.transactionDate | date: "MMM dd" }}
+    <div class="ui celled list" *ngIf="(transactions | filter: searchTerm).length > 0; else noResults">
+      
+        <div class="item" *ngFor="let transaction of transactions | filter: searchTerm">
+        <div class="left floated content middle aligned">
+          {{ transaction.transactionDate | date: "MMM dd" }}
+        </div>
+        <img class="ui image" style="height: 30px" src="{{ transaction.merchantLogo }}" />
+        <div class="content">
+          <div class="header">{{ transaction.merchant }}</div>
+          {{ transaction.transactionType }}
+        </div>
+        <div class="right floated content">
+          <div class="ui ">-${{ transaction.amount }}</div>
+        </div>
+      </div>
+      
+  
     </div>
-    <img class="ui image" src="{{ transaction.merchantLogo }}" />
-    <div class="content">
-      <div class="header">{{ transaction.merchant }}</div>
-      {{ transaction.transactionType }}
-    </div>
-    <div class="right floated content">
-      <div class="ui ">{{ transaction.amount }}</div>
-    </div>
+    <ng-template #noResults>
+      <p>No results found for "{{searchTerm}}"</p>
+    </ng-template>
   </div>
-  <div *ngIf="newTransfer">
-    <h1 class="ui">New Data!!</h1>
-    <div *ngFor="let new of newTransfer">{{new.merchant}}</div>
-  </div>
-</div>
+
+
