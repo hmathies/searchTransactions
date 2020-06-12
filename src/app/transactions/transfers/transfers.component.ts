@@ -12,7 +12,7 @@ export class TransfersComponent implements OnInit {
   @Output() accounts;
   @Output() merchants;
   @Output() transfer: Transfer;
-  
+  fromAccountAmt: number = 10000
 
   constructor(private accountService: AccountService) {
     this.accountService.getAccounts().subscribe(accounts => {
@@ -23,14 +23,15 @@ export class TransfersComponent implements OnInit {
     this.accountService.getMerchants().subscribe((merchants) => {
       this.merchants = merchants;
     })
-  }
-
-  ngOnInit() {
     this.transfer = {
-      from: "",
+      from: `Now Checking(8979) - ${this.fromAccountAmt}`,
       to: "",
       amount: ""
     };
+  }
+
+  ngOnInit() {
+
   }
 
   onDecrement(event: Event){

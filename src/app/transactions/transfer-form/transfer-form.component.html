@@ -2,17 +2,17 @@
   <app-input
     [control]="transferForm.get('from')"
     inputType="text"
-    placeholder="Now Checking"
     label="FROM"
+    value="fromAccount"
   >
-
+  {{transferForm.get('from').errors | json}}
   </app-input>
   <app-input
     [control]="transferForm.get('to')"
     inputType="text"
     label="TO"
   >
-  {{transferForm.get('to').errors}}
+ 
   </app-input>
   
   <app-input

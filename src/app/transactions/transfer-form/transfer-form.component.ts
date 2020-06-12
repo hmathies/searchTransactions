@@ -9,26 +9,22 @@ import { $ } from 'protractor';
   templateUrl: "./transfer-form.component.html",
   styleUrls: ["./transfer-form.component.css"]
 })
-export class TransferFormComponent implements OnInit {
+export class TransferFormComponent  {
   transferForm: FormGroup;
   @Input() transfer: Transfer;
   @Input() accounts;
   @Input() merchants;
   @Output() transferSubmit = new EventEmitter();
   @Output() newTransfer: Object;
-  fromAccount: string = 'Now Checking(8979) '
-  //  make them variable with amount so we can decrement
-  fromAccountAmt: number = 10000
-  constructor(private accountService: AccountService) {}
 
-  ngOnInit() {
+  constructor(private accountService: AccountService) {}
+  ngOnChanges() {
     const { from, to, amount } = this.transfer;
 
-
     this.transferForm = new FormGroup({
-      from: new FormControl({value: `${this.fromAccount} ${this.fromAccountAmt}`, disabled: true}),
-      to: new FormControl("", [Validators.required, Validators.pattern(/^[a-z0-9]+$/)]),
-      amount: new FormControl("", [Validators.required])
+      from: new FormControl({value: from, disabled: true}),
+      to: new FormControl(to, [Validators.required, Validators.pattern(/^[a-z0-9]+$/)]),
+      amount: new FormControl(amount, [Validators.required])
     });
   }
 
@@ -45,10 +41,8 @@ export class TransferFormComponent implements OnInit {
       transactionDate: dateSent,
       transactionType: "Online Transfer"
     }
-    //this.transferSubmit.emit(this.transferForm.value);
     this.accountService.postTransfer(this.newTransfer);
     console.log("this.newTransfer ", this.newTransfer)
-    //this.transferForm.reset(); -- this is clearing the from field - not what we want
-
+    this.transferForm.reset(this.transfer)
   }
 }

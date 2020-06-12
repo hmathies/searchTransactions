@@ -1,3 +1,6 @@
 .ui.header:first-child {
     background-color: cadetblue;
   }
+  .app-transfer-form {
+      margin-left: 20px;
+  }

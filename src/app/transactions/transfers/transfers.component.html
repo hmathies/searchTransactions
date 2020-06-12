@@ -4,5 +4,9 @@
     Make a Transfer
   </div>
 </h2>
-<app-transfer-form (transferSubmit)="onDecrement($event)" [accounts]="accounts" [transfer]="transfer" [merchants]="merchants">
+<app-transfer-form 
+  (transferSubmit)="onDecrement($event)" 
+  [accounts]="accounts" 
+  [transfer]="transfer" 
+  [merchants]="merchants">
 </app-transfer-form>
