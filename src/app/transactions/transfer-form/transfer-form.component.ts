@@ -39,9 +39,9 @@ export class TransferFormComponent implements OnInit {
     let dateSent = new Date().getTime();
     this.newTransfer = {
       amount: this.transferForm.value.amount,
-      categoryCode: '',
+      categoryCode: Math.random().toString(36).substring(7),
       merchant: this.transferForm.value.to,
-      merchantLogo: '',
+      merchantLogo: 'https://picsum.photos/40',
       transactionDate: dateSent,
       transactionType: "Online Transfer"
     }
