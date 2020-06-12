@@ -28,6 +28,8 @@ For the categoryCode, I am generating a random string.  For the merchantLogo, I 
 
 <img width="629" alt="Screenshot 2020-06-12 at 12 06 33 PM" src="https://user-images.githubusercontent.com/29784328/84522856-5989b600-aca5-11ea-83c2-64f98e0f12d4.png">
 
+I enjoyed working on this project.  I wish I could have finished it to it's entirity but I appreciate you for checking it out!
+
 
 
 
