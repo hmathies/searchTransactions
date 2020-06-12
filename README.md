@@ -18,6 +18,9 @@ Run `npm run api` to start up the json server.
 Run `npm start` in a different terminal to start the development server. Navigate to `http://localhost:4200/`. 
 
 ## Reflection
-For this submission, I was able to get some, but not all of the features to work in the allotted time frame.  
+For this submission, I was able to get some, but not all of the features to work in the allotted time frame.  I started a few things, one of them being the modal confirmation of the submitted transfer.  
+<img width="1669" alt="Screenshot 2020-06-12 at 11 57 14 AM" src="https://user-images.githubusercontent.com/29784328/84522065-f51a2700-aca3-11ea-85ad-fe06acb8be60.png">
+
+This is not in my submission as it isn't working as expected.
 
 
