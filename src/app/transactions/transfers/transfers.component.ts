@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { AccountService } from "../../account.service";
 import { Transfer } from "../transfer";
-import { AccountResponse } from "../AccountResponse";
 
 @Component({
   selector: "app-transfers",
@@ -34,8 +33,4 @@ export class TransfersComponent implements OnInit {
 
   }
 
-  onDecrement(event: Event){
-    /// handle event here
-    console.log("ignore me")
-  }
 }

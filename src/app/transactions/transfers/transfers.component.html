@@ -1,12 +1,14 @@
-<h2 class="ui header">
-  <img class="ui image" src="/assets/icons/exchange.png" />
-  <div class="content">
-    Make a Transfer
-  </div>
-</h2>
-<app-transfer-form 
-  (transferSubmit)="onDecrement($event)" 
-  [accounts]="accounts" 
-  [transfer]="transfer" 
-  [merchants]="merchants">
-</app-transfer-form>
+
+<div class="ui wrapper">
+  <h2 class="ui header">
+    <img class="ui image" src="/assets/icons/exchange.png" />
+    <div class="content">
+      Make a Transfer
+    </div>
+  </h2>
+  <app-transfer-form 
+    [accounts]="accounts" 
+    [transfer]="transfer" 
+    [merchants]="merchants">
+  </app-transfer-form>
+</div>
