@@ -5,14 +5,16 @@
     placeholder="Now Checking"
     label="FROM"
   >
+
   </app-input>
   <app-input
     [control]="transferForm.get('to')"
     inputType="text"
     label="TO"
   >
+  {{transferForm.get('to').errors}}
   </app-input>
-
+  
   <app-input
     [control]="transferForm.get('amount')"
     inputType="number"

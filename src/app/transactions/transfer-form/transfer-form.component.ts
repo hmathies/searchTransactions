@@ -27,29 +27,28 @@ export class TransferFormComponent implements OnInit {
 
     this.transferForm = new FormGroup({
       from: new FormControl({value: `${this.fromAccount} ${this.fromAccountAmt}`, disabled: true}),
-      to: new FormControl(""),
-      amount: new FormControl(""
-      )
+      to: new FormControl("", [Validators.required, Validators.pattern(/^[a-z0-9]+$/)]),
+      amount: new FormControl("", [Validators.required])
     });
   }
 
-  // onSubmit() {
-  //   if (this.transferForm.invalid) {
-  //     return;
-  //   }
-  //   let dateSent = new Date().getTime();
-  //   this.newTransfer = {
-  //     amount: this.transferForm.value.amount,
-  //     categoryCode: '',
-  //     merchant: this.transferForm.value.to,
-  //     merchantLogo: '',
-  //     transactionDate: dateSent,
-  //     transactionType: "Online Transfer"
-  //   }
-  //   //this.transferSubmit.emit(this.transferForm.value);
-  //   this.accountService.postTransfer(this.newTransfer);
-  //   console.log("this.newTransfer ", this.newTransfer)
-  //   //this.transferForm.reset(); -- this is clearing the from field - not what we want
+  onSubmit() {
+    if (this.transferForm.invalid) {
+      return;
+    }
+    let dateSent = new Date().getTime();
+    this.newTransfer = {
+      amount: this.transferForm.value.amount,
+      categoryCode: '',
+      merchant: this.transferForm.value.to,
+      merchantLogo: '',
+      transactionDate: dateSent,
+      transactionType: "Online Transfer"
+    }
+    //this.transferSubmit.emit(this.transferForm.value);
+    this.accountService.postTransfer(this.newTransfer);
+    console.log("this.newTransfer ", this.newTransfer)
+    //this.transferForm.reset(); -- this is clearing the from field - not what we want
 
-  // }
+  }
 }

@@ -1,4 +1,4 @@
-
+<div class="backgroundColor">
   <h2 class="ui header">
     <img class="ui image" src="/assets/icons/suitcase.png" />
     <div class="content">
@@ -8,7 +8,11 @@
 <div class="ui search">
   <div class="ui icon input">
     <input class="prompt" type="text"[(ngModel)]="searchTerm" placeholder="Search by typing..." />
-    <i class="search icon"></i>
+  </div>
+  <div class="ui basic buttons right floated">
+    <div class="ui button">DATE</div>
+    <div class="ui button">BENEFICIARY</div>
+    <div class="ui button">AMOUNT</div>
   </div>
     <div class="ui celled list" *ngIf="(transactions | filter: searchTerm).length > 0; else noResults">
       
@@ -16,7 +20,7 @@
         <div class="left floated content middle aligned">
           {{ transaction.transactionDate | date: "MMM dd" }}
         </div>
-        <img class="ui image" style="height: 30px" src="{{ transaction.merchantLogo }}" />
+        <img class="ui image"  src="{{ transaction.merchantLogo }}" />
         <div class="content">
           <div class="header">{{ transaction.merchant }}</div>
           {{ transaction.transactionType }}
@@ -29,8 +33,8 @@
   
     </div>
     <ng-template #noResults>
-      <p>No results found for "{{searchTerm}}"</p>
+      <p style="color: black">No results found for "{{searchTerm}}"</p>
     </ng-template>
   </div>
-
+</div>
 

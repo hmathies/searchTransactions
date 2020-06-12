@@ -1,4 +1,4 @@
-.list {
+.backgroundColor {
   background-color: white;
 }
 
@@ -14,4 +14,8 @@
 
 .ui.header:first-child {
   background-color: cadetblue;
+}
+p {
+  color: white;
+  align-content: center;
 }
