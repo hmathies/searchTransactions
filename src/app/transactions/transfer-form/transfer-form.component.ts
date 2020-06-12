@@ -24,7 +24,7 @@ export class TransferFormComponent  {
     this.transferForm = new FormGroup({
       from: new FormControl({value: from, disabled: true}),
       to: new FormControl(to, [Validators.required, Validators.pattern(/^[a-z0-9]+$/)]),
-      amount: new FormControl(amount, [Validators.required])
+      amount: new FormControl(amount, [Validators.required, Validators.pattern(/^\$?([1-9]{1}[0-9]{0,2}(\,[0-9]{3})*(\.[0-9]{0,2})?|[1-9]{1}[0-9]{0,}(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|(\.[0-9]{1,2})?)$/)])
     });
   }
 
