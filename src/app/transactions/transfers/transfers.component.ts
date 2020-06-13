@@ -11,16 +11,16 @@ export class TransfersComponent implements OnInit {
   @Output() accounts;
   @Output() merchants;
   @Output() transfer: Transfer;
-  fromAccountAmt: number = 10000
+  @Output() fromAccountAmt: number = 10000;
 
   constructor(private accountService: AccountService) {
     this.accountService.getAccounts().subscribe(accounts => {
       this.accounts = accounts;
     });
 
-    this.accountService.getMerchants().subscribe((merchants) => {
+    this.accountService.getMerchants().subscribe(merchants => {
       this.merchants = merchants;
-    })
+    });
     this.transfer = {
       from: `Now Checking(8979) - ${this.fromAccountAmt}`,
       to: "",
@@ -29,5 +29,4 @@ export class TransfersComponent implements OnInit {
   }
 
   ngOnInit() {}
-
 }
