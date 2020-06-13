@@ -42,7 +42,6 @@ export class TransferFormComponent implements OnInit {
       return;
     }
     this.userAmountInput = parseInt(this.transferForm.value.amount);
-    this.transfer.from = `Now Checking(8979) - ${this.fromAccountAmt} - ${this.userAmountInput}`;
     let dateSent = new Date().getTime();
     this.newTransfer = {
       amount: this.transferForm.value.amount,
