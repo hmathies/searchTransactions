@@ -20,11 +20,6 @@ export class TransferFormComponent implements OnInit {
 
   constructor(private accountService: AccountService) {}
   ngOnInit() {
-    console.log(
-      "this.fromAccountAmt ",
-      this.fromAccountAmt,
-      typeof this.fromAccountAmt
-    );
     const { from, to, amount } = this.transfer;
 
     this.transferForm = new FormGroup({
@@ -48,7 +43,6 @@ export class TransferFormComponent implements OnInit {
     }
     this.userAmountInput = parseInt(this.transferForm.value.amount);
     this.transfer.from = `Now Checking(8979) - ${this.fromAccountAmt} - ${this.userAmountInput}`;
-    console.log(this.transfer.from);
     let dateSent = new Date().getTime();
     this.newTransfer = {
       amount: this.transferForm.value.amount,
@@ -60,8 +54,8 @@ export class TransferFormComponent implements OnInit {
       transactionDate: dateSent,
       transactionType: "Online Transfer"
     };
+    console.log(this.newTransfer);
     this.accountService.postTransfer(this.newTransfer);
-    console.log(parseInt(this.transferForm.value.amount));
 
     this.transfer = {
       from: `Now Checking(8979) - ${this.fromAccountAmt -
